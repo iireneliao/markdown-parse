@@ -42,28 +42,42 @@ public class MarkdownParseTest {
         }
     }
 
-    @Test
-    public void testSnippet1() throws IOException {
-        Path file = Path.of("snippet1.md");
-        String contents = Files.readString(file);
+    // @Test
+    // public void testSnippet1() throws IOException {
+    //     Path file = Path.of("snippet1.md");
+    //     String contents = Files.readString(file);
 
-        assertEquals(List.of("google.com", "google.com", "ucsd.edu"), MarkdownParse.getLinks(contents));
+    //     assertEquals(List.of("google.com", "google.com", "ucsd.edu"), MarkdownParse.getLinks(contents));
+    // }
+
+    // @Test
+    // public void testSnippet2() throws IOException {
+    //     Path file = Path.of("snippet2.md");
+    //     String contents = Files.readString(file);
+
+    //     assertEquals(List.of("a.com", "a.com(())", "example.com"), MarkdownParse.getLinks(contents));
+    // }
+
+    // @Test
+    // public void testSnippet3() throws IOException {
+    //     Path file = Path.of("snippet3.md");
+    //     String contents = Files.readString(file);
+
+    //     assertEquals(List.of("https://www.twitter.com", "https://ucsd-cse15l-w22.github.io/",
+    //         "https://cse.ucsd.edu/"), MarkdownParse.getLinks(contents));
+    // }
+
+    @Test
+    public void test20Test() throws IOException {
+        Path file = Path.of("20.md");
+        String contents = Files.readString(file);
+        assertEquals(List.of("http://example.com?find=%5C"), MarkdownParse.getLinks(contents));
     }
 
     @Test
-    public void testSnippet2() throws IOException {
-        Path file = Path.of("snippet2.md");
+    public void test32Test() throws IOException {
+        Path file = Path.of("32.md");
         String contents = Files.readString(file);
-
-        assertEquals(List.of("a.com", "a.com(())", "example.com"), MarkdownParse.getLinks(contents));
-    }
-
-    @Test
-    public void testSnippet3() throws IOException {
-        Path file = Path.of("snippet3.md");
-        String contents = Files.readString(file);
-
-        assertEquals(List.of("https://www.twitter.com", "https://ucsd-cse15l-w22.github.io/",
-            "https://cse.ucsd.edu/"), MarkdownParse.getLinks(contents));
+        assertEquals(List.of("/f&ouml;&ouml;"), MarkdownParse.getLinks(contents));
     }
 }
